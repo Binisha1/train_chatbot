@@ -29,6 +29,7 @@
   --color-accent2: rgb(53, 62, 67);
   --color-bg-translucent: hsla(0, 0%, 100%, 0.05);
   --color-yellow: rgba(242, 201, 76, 255);
+  --color-navHover: rgb(40, 40, 44);
 }
 
 @layer base {
@@ -42,25 +43,37 @@ body {
   color: var(--color-text-primary);
 }
 
+@layer components {
+  body {
+    @apply bg-background;
+  }
+  h1 {
+    @apply text-xl  md:text-4xl  text-[var(--color-text-primary)]  font-medium;
+  }
+  h2 {
+    @apply text-base md:text-lg;
+  }
+}
+
 :root {
   --sidebar: var(--color-background);
-  --sidebar-foreground: var(--color-text-primary);
-  --sidebar-primary: hsl(240 5.9% 10%);
-  --sidebar-primary-foreground: var(--color-text-primary);
-  --sidebar-accent: var(--color-button);
-  --sidebar-accent-foreground: hsl(240 5.9% 10%);
-  --sidebar-border: var(--color-text-black);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --sidebar-foreground: var(--color-text-subtitle);
+  --sidebar-primary: --color-text-white;
+  --sidebar-primary-foreground: --color-text-black;
+  --sidebar-accent: rgb(40, 40, 44);
+  --sidebar-accent-foreground: var(--color-text-primary);
+  --sidebar-border: --color-border;
+  --sidebar-ring: --color-text-black;
 }
 
 .dark {
-  --sidebar: var(--color-background);
-  --sidebar-foreground: var(--color-text-primary);
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
   --sidebar-primary: hsl(224.3 76.3% 48%);
-  --sidebar-primary-foreground: var(--color-button);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
   --sidebar-accent: hsl(240 3.7% 15.9%);
-  --sidebar-accent-foreground: ;
-  --sidebar-border: var(--color-border);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
@@ -75,14 +88,11 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer components {
+@layer base {
+  * {
+    @apply border-border;
+  }
   body {
     @apply bg-background;
-  }
-  h1 {
-    @apply text-xl  md:text-4xl  text-[var(--color-text-primary)]  font-medium;
-  }
-  h2 {
-    @apply text-base md:text-lg;
   }
 }
