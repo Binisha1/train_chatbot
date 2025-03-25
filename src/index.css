@@ -1,0 +1,86 @@
+@import url(https://fonts.adobe.com/fonts/inter-variable);
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-family-inter: "Inter Variable", "SF Pro Display", -apple-system,
+    BlinkMacSystem;
+
+  --color-*: initial;
+  --color-background: #08090a;
+  --color-button: rgb(230, 230, 230);
+  --color-button-background: rgb(40, 40, 44);
+  --color-bg-translucent: hsla(0, 0%, 100%, 0.05);
+  /* Text Colors */
+  --color-text-green: rgb(104, 204, 88);
+  --color-text-orange: rgb(242, 153, 74);
+  --color-text-red: rgb(197, 40, 40);
+  --color-text-white: #fff;
+  --color-text-teritary: rgb(208, 214, 224);
+  --color-text-primary: rgb(247, 248, 248); /* white */
+  --color-text-subtitle: rgba(255, 255, 255, 0.7);
+  --color-text-secondary: rgb(138, 143, 152); /* greyish */
+  --color-text-black: rgb(8, 9, 10); /* black */
+  --color-text-decoration: rgb(138, 143, 152);
+  --color-border: rgb(35, 37, 42);
+  --color-container-background: "#141516";
+  --color-bg-translucent: hsla(0, 0%, 100%, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary;
+  }
+}
+body {
+  /* font-family: var(--font-family-inter); */
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+:root {
+  --sidebar: var(--color-background);
+  --sidebar-foreground: var(--color-text-primary);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: var(--color-text-primary);
+  --sidebar-accent: var(--color-button);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: var(--color-text-black);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+.dark {
+  --sidebar: var(--color-background);
+  --sidebar-foreground: var(--color-text-primary);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: var(--color-button);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: ;
+  --sidebar-border: var(--color-border);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+@theme inline {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer components {
+  body {
+    @apply bg-background;
+  }
+  h1 {
+    @apply text-xl  md:text-4xl  text-[var(--color-text-primary)]  font-medium;
+  }
+  h2 {
+    @apply text-base md:text-lg;
+  }
+}
