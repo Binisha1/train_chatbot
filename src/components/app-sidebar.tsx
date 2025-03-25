@@ -1,4 +1,14 @@
-import { Calendar, Inbox, Search, Settings, Train, X } from "lucide-react";
+import {
+  ActivityIcon,
+  BarChart,
+  Bot,
+  Calendar,
+  GitPullRequestDraft,
+  Hammer,
+  Search,
+  User2,
+  UserPlus2,
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -13,15 +23,15 @@ import { useNavigate } from "react-router";
 
 // Menu items with correct paths
 const items = [
-  { title: "Training", path: "/", icon: Train },
-  { title: "Customization", path: "/customization", icon: Inbox },
+  { title: "Training", path: "/", icon: Bot },
+  { title: "Customization", path: "/customization", icon: Hammer },
   { title: "Testing", path: "/", icon: Calendar },
   { title: "History", path: "/", icon: Search },
-  { title: "Analytics", path: "/", icon: Settings },
-  { title: "Leads", path: "/", icon: Settings },
-  { title: "Actions", path: "/", icon: Settings },
-  { title: "Add to website", path: "/", icon: Settings },
-  { title: "Account", path: "/", icon: Settings },
+  { title: "Analytics", path: "/", icon: BarChart },
+  { title: "Leads", path: "/", icon: UserPlus2 },
+  { title: "Actions", path: "/", icon: ActivityIcon },
+  { title: "Add to website", path: "/", icon: GitPullRequestDraft },
+  { title: "Account", path: "/", icon: User2 },
 ];
 
 export function AppSidebar() {

@@ -63,7 +63,7 @@ const TrainByFile = () => {
               : "No files selected"}
           </div>
           <Button
-            className="bg-button text-text-black"
+            className="bg-button text-text-black "
             disabled={files.length === 0}
           >
             Start Training
