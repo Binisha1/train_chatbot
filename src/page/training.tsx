@@ -55,10 +55,7 @@ const Training = () => {
               <motion.li
                 key={item.label}
                 initial={false}
-                animate={{
-                  backgroundColor: item.label === selectedTab.label ? `` : "",
-                }}
-                className="flex flex-col text-sm mb-1 items-center cursor-pointer  w-1/4"
+                className="flex-1 relative  flex flex-col items-center  cursor-pointer transition-colors hover:text-text-primary hover:bg-container-background"
                 onClick={() => setSelectedTab(item)}
               >
                 {/* Tab label */}
@@ -67,20 +64,21 @@ const Training = () => {
                     item.label === selectedTab.label
                       ? "text-text-primary"
                       : "text-text-secondary"
-                  } hover:text-black flex items-center  gap-2 mb-2`}
+                  } hover:text-text-primary flex items-center  gap-2 mb-2`}
                 >
                   <span>{item.icon}</span>
                   <h2>{item.label}</h2>
                 </div>
-
-                {/* bottom border indicator */}
-                <div
-                  className={`h-1 w-full rounded-sm transition-all ${
-                    item.label === selectedTab.label
-                      ? "bg-text-green"
-                      : "bg-transparent"
-                  }`}
-                ></div>
+                {/* Animated underline */}
+                {item.label === selectedTab.label && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-text-green"
+                    layoutId="underline"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </motion.li>
             ))}
           </ul>
