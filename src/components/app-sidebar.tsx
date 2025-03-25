@@ -1,5 +1,27 @@
-import * as React from "react";
-import { ChevronRight } from "lucide-react";
+"use client";
+
+import type * as React from "react";
+import {
+  Plus,
+  Settings,
+  Code,
+  Terminal,
+  Zap,
+  Cpu,
+  Home,
+  Bot,
+  BarChart,
+  UserPlus2,
+  ActivityIcon,
+  GitPullRequestDraft,
+  CalendarHeart,
+  Hammer,
+  DownloadCloud,
+  Download,
+  File,
+  Globe,
+  BrickWall,
+} from "lucide-react";
 
 import { SearchForm } from "@/components/search-form";
 import {
@@ -10,11 +32,13 @@ import {
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
+  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
@@ -23,141 +47,66 @@ import {
 } from "@/components/ui/sidebar";
 import { useNavigate } from "react-router";
 
-// This is sample data.
+// Updated data structure with icons
 const data = {
+  home: [
+    { title: "Home", icon: Home, url: "/", badge: "2" },
+    {
+      title: "customization",
+      icon: Hammer,
+      url: "/customization",
+      badge: "12",
+    },
+    { title: "Training", icon: Bot, url: "", badge: "74" },
+    { title: "Testing", icon: CalendarHeart, url: "" },
+  ],
+  footer: [
+    { title: "Help Center", icon: Globe, url: "" },
+    { title: "Sub accounts", icon: Home, url: "" },
+    { title: "Billing", icon: BrickWall, url: "" },
+  ],
   navMain: [
     {
-      title: "Getting Started",
-      url: "#",
+      title: "MicroDose",
+      url: "/api",
+      icon: Code,
       items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
+        { title: "Analytics", url: "/", icon: BarChart, badge: "9" },
+        { title: "Leads", url: "/", icon: UserPlus2 },
+        { title: "Actions", url: "/", icon: ActivityIcon },
+        { title: "Add to website", url: "/", icon: GitPullRequestDraft },
+
         {
           title: "Edge Runtime",
-          url: "#",
+          url: "/api/edge",
+          icon: Zap,
         },
       ],
     },
     {
-      title: "Architecture",
-      url: "#",
+      title: "Teams",
+      url: "/",
+      icon: Cpu,
       items: [
         {
-          title: "Accessibility",
-          url: "#",
+          title: "Reports",
+          url: "/",
+          icon: BarChart,
         },
         {
-          title: "Fast Refresh",
-          url: "#",
+          title: "Projects",
+          url: "/",
+          icon: Download,
         },
         {
-          title: "Next.js Compiler",
-          url: "#",
+          title: "Template",
+          url: "/",
+          icon: File,
         },
         {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
+          title: "Documents",
+          url: "/",
+          icon: DownloadCloud,
         },
       ],
     },
@@ -167,18 +116,44 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navigate = useNavigate();
   const { state } = useSidebar();
+
+  // Function to handle navigation
+  const handleNavigation = (url: string) => {
+    navigate(url);
+  };
+
   return (
     <Sidebar {...props} collapsible="icon">
-      <SidebarHeader>
-        <div className="flex justify-between items-center w-full p-2 border-b border">
+      <SidebarHeader className="border-none">
+        <div className="flex justify-between items-center w-full p-2 border-b-2 border-border text-text-primary">
           {state === "expanded" && (
             <span className="font-semibold">Microdose Inc</span>
           )}
-          <SidebarTrigger className=" hidden md:flex" />
+          <SidebarTrigger className="hidden md:flex" />
         </div>
         <SearchForm />
       </SidebarHeader>
-      <SidebarContent className="gap-0">
+
+      <SidebarContent className="gap-0 mt-0 pt-0 sidebar-content overflow-y-auto">
+        <SidebarGroup className="border-b-2 border-border">
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {data.home.map((home) => (
+                <SidebarMenuItem key={home.title}>
+                  <SidebarMenuButton onClick={() => handleNavigation(home.url)}>
+                    <home.icon className="mr-2 h-4 w-4" />
+                    <span>{home.title}</span>
+                  </SidebarMenuButton>
+                  {home.badge && (
+                    <SidebarMenuBadge className="w-4 items-center">
+                      {home.badge}
+                    </SidebarMenuBadge>
+                  )}
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
         {/* We create a collapsible SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <Collapsible
@@ -187,24 +162,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             defaultOpen
             className="group/collapsible"
           >
-            <SidebarGroup>
+            <SidebarGroup className="border-b-2 border-border">
               <SidebarGroupLabel
                 asChild
-                className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                className="group/label text-sm text-text-primary hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               >
                 <CollapsibleTrigger>
+                  <item.icon className="mr-2 h-4 w-4" />
                   {item.title}{" "}
-                  <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                  <Plus className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-45" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
-              <CollapsibleContent>
+              <CollapsibleContent className="overflow-hidden">
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {item.items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild isActive={item.isActive}>
-                          <a href={item.url}>{item.title}</a>
+                    {item.items.map((subItem) => (
+                      <SidebarMenuItem key={subItem.title}>
+                        <SidebarMenuButton
+                          isActive={subItem.isActive}
+                          onClick={() => handleNavigation(subItem.url)}
+                        >
+                          <subItem.icon className="mr-2 h-4 w-4" />
+                          <span>{subItem.title}</span>
                         </SidebarMenuButton>
+                        {subItem.badge && (
+                          <SidebarMenuBadge className="w-4 ">
+                            {subItem.badge}
+                          </SidebarMenuBadge>
+                        )}
                       </SidebarMenuItem>
                     ))}
                   </SidebarMenu>
@@ -214,7 +199,25 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </Collapsible>
         ))}
       </SidebarContent>
-      <SidebarRail />
+      <SidebarFooter>
+        <SidebarGroup className="border-b border-border">
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {data.footer.map((home) => (
+                <SidebarMenuItem key={home.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={home.url}>
+                      <home.icon />
+                      <span>{home.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarFooter>
+      <SidebarRail className="w-1" />
     </Sidebar>
   );
 }

@@ -58,12 +58,12 @@ body {
 :root {
   --sidebar: var(--color-background);
   --sidebar-foreground: var(--color-text-subtitle);
-  --sidebar-primary: --color-text-white;
-  --sidebar-primary-foreground: --color-text-black;
+  --sidebar-primary: var(--color-text-black);
+  --sidebar-primary-foreground: var(--color-text-black);
   --sidebar-accent: rgb(40, 40, 44);
   --sidebar-accent-foreground: var(--color-text-primary);
-  --sidebar-border: --color-border;
-  --sidebar-ring: --color-text-black;
+  --sidebar-border: var(--color-text-secondary);
+  --sidebar-ring: var(--color-text-black);
 }
 
 .dark {
@@ -95,4 +95,14 @@ body {
   body {
     @apply bg-background;
   }
+}
+
+.sidebar-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.sidebar-content {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
