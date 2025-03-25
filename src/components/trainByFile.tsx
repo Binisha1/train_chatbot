@@ -152,8 +152,8 @@ export function FileInput({
         className={cn(
           "border-2 border-dashed rounded-xl p-8 transition-all",
           isDragActive
-            ? "border-accent1 bg-accent1 scale-[0.98]"
-            : "border-accent1 hover:bg-accent1 ",
+            ? "border-accent2 bg-accent2 scale-[0.98]"
+            : "border-accent2 hover:brightness-200   ",
           disabled && "opacity-50 cursor-not-allowed",
           className
         )}
@@ -202,7 +202,7 @@ export function FileInput({
       )}
 
       {uploading && (
-        <div className="space-y-2 bg-muted/50 p-4 rounded-lg">
+        <div className="space-y-2  p-4 rounded-lg">
           <div className="flex justify-between text-sm">
             <span className="font-medium">Uploading files...</span>
             <span className="text-muted-foreground">{progress}%</span>
@@ -236,7 +236,7 @@ function FileQueue() {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <span className="text-sm text-muted-foreground">Files in queue</span>
-        <Badge variant="outline" className="bg-primary/10">
+        <Badge variant="outline" className="">
           {fileCount}/{MAX_FILES}
         </Badge>
       </div>
