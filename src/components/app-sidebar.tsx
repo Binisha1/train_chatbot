@@ -3,9 +3,7 @@
 import type * as React from "react";
 import {
   Plus,
-  Settings,
   Code,
-  Terminal,
   Zap,
   Cpu,
   Home,
@@ -179,7 +177,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     {item.items.map((subItem) => (
                       <SidebarMenuItem key={subItem.title}>
                         <SidebarMenuButton
-                          isActive={subItem.isActive}
                           onClick={() => handleNavigation(subItem.url)}
                         >
                           <subItem.icon className="mr-2 h-4 w-4" />
