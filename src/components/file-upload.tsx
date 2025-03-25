@@ -56,9 +56,9 @@ export default function FileUpload({ accept, onChange }: FileUploadProps) {
           type="button"
           variant="outline"
           onClick={() => fileInputRef.current?.click()}
-          className="flex-1 border-accent1 focus:border-accent1"
+          className="flex-1 border-accent1 text-text-secondary focus:border-accent1"
         >
-          <Upload className="mr-2 h-4 w-4" />
+          <Upload className="mr-2 h-4 w-4 " />
           Upload File
         </Button>
       </div>

@@ -76,7 +76,7 @@ const data = {
 
         {
           title: "Edge Runtime",
-          url: "/api/edge",
+          url: "/",
           icon: Zap,
         },
       ],

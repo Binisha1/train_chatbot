@@ -52,15 +52,18 @@ export default function CustomizationPanel() {
       </div>
 
       <div className="md:flex items-center justify-between">
-        <Label htmlFor="temperature">Temperature: {config.temperature}</Label>
-        <Slider
-          className="md:w-1/2"
-          id="temperature"
-          defaultValue={[config.temperature]}
-          max={1}
-          step={0.1}
-          onValueChange={(value) => handleChange("temperature", value[0])}
-        />
+        <Label htmlFor="temperature">Temperature: </Label>
+        <div className="w-1/2 flex">
+          <Slider
+            className=""
+            id="temperature"
+            defaultValue={[config.temperature]}
+            max={1}
+            step={0.1}
+            onValueChange={(value) => handleChange("temperature", value[0])}
+          />
+          <span className="ml-3">{config.temperature}</span>
+        </div>
       </div>
 
       <div className="space-y-2">
