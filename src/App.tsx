@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import AppLayout from "./app/layout";
 import Training from "./page/training";
-import Configuration from "./page/configuration";
+import Customization from "./page/customization";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Training />} />
-          <Route path="/configuration" element={<Configuration />} />
+          <Route path="/customization" element={<Customization />} />
         </Route>
       </Routes>
     </BrowserRouter>

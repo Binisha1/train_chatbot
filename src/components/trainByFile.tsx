@@ -279,7 +279,7 @@ function FileQueue() {
                   className="h-8 w-8 text-muted-foreground hover:text-destructive"
                   onClick={() => removeFile(index)}
                 >
-                  <Trash2 className="h-4 w-4 " />
+                  <Trash2 className="h-5 w-5 text-text-red brightness-200" />
                   <span className="sr-only">Remove file</span>
                 </Button>
               </div>

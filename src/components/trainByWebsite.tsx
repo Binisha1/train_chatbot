@@ -73,7 +73,7 @@ export default function TrainByWebsite() {
               <Button
                 onClick={handleAddUrl}
                 size="icon"
-                className="h-10 w-10"
+                className="h-10 w-10 bg-button text-text-black"
                 disabled={urls.length >= MAX_URLS}
               >
                 <Plus className="h-4 w-4" />
@@ -120,7 +120,7 @@ export default function TrainByWebsite() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-7 w-7"
+                          className="h-7 w-7 text-text-red brightness-200"
                           onClick={() => removeUrl(index)}
                         >
                           <Trash2 className="h-3.5 w-3.5" />
@@ -130,18 +130,6 @@ export default function TrainByWebsite() {
                   </AnimatePresence>
                 </ul>
               )}
-            </div>
-
-            <div className="bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 p-4 rounded-lg text-sm">
-              <h3 className="font-medium mb-1 flex items-center gap-2">
-                <AlertCircle className="h-4 w-4" />
-                Important Note
-              </h3>
-              <p>
-                Make sure you have permission to scrape content from the
-                websites you add. Some websites may have terms of service that
-                prohibit scraping.
-              </p>
             </div>
           </div>
         </CardContent>

@@ -46,7 +46,7 @@ export default function TrainByQA() {
       <Card className="border-none shadow-sm">
         <CardHeader className="pb-3">
           <CardTitle>Q&A Training</CardTitle>
-          <CardDescription>
+          <CardDescription className="text-text-secondary">
             Create question and answer pairs for precise training
           </CardDescription>
         </CardHeader>
@@ -85,7 +85,7 @@ export default function TrainByQA() {
               </div>
 
               {error && (
-                <div className="flex items-center gap-2 text-destructive text-sm">
+                <div className="flex items-center gap-2  text-sm">
                   <AlertCircle className="h-4 w-4 flex-shrink-0" />
                   <span>{error}</span>
                 </div>
@@ -105,7 +105,7 @@ export default function TrainByQA() {
               </Button>
             </div>
 
-            <div className="bg-muted/50 p-4 rounded-lg">
+            <div className=" p-4 rounded-lg">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-medium">Q&A Pairs</h3>
                 <Badge variant="outline" className="bg-primary/10">
@@ -131,7 +131,7 @@ export default function TrainByQA() {
                       >
                         <div className="flex justify-between items-start">
                           <div className="flex items-start gap-2">
-                            <div className="size-6 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <div className="size-6 rounded  flex items-center justify-center flex-shrink-0 mt-0.5">
                               <MessageSquareText className="h-3.5 w-3.5 text-primary" />
                             </div>
                             <div className="space-y-2">
@@ -149,7 +149,7 @@ export default function TrainByQA() {
                             className="h-7 w-7"
                             onClick={() => removeQAPair(index)}
                           >
-                            <Trash2 className="h-3.5 w-3.5" />
+                            <Trash2 className="h-3.5 w-3.5 text-text-red brightness-200" />
                           </Button>
                         </div>
                       </motion.li>
@@ -161,7 +161,7 @@ export default function TrainByQA() {
           </div>
         </CardContent>
         <CardFooter className="border-t pt-6 flex justify-between">
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm ">
             {pairCount > 0
               ? `${pairCount} pair${pairCount !== 1 ? "s" : ""} added`
               : "No Q&A pairs added"}

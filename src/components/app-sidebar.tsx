@@ -14,14 +14,14 @@ import { useNavigate } from "react-router";
 // Menu items with correct paths
 const items = [
   { title: "Training", path: "/", icon: Train },
-  { title: "Configuration", path: "/configuration", icon: Inbox },
-  { title: "Testing", path: "/training", icon: Calendar },
-  { title: "History", path: "/training", icon: Search },
-  { title: "Analytics", path: "/training", icon: Settings },
-  { title: "Leads", path: "/training", icon: Settings },
-  { title: "Actions", path: "/training", icon: Settings },
-  { title: "Add to website", path: "/training", icon: Settings },
-  { title: "Account", path: "/training", icon: Settings },
+  { title: "Customization", path: "/customization", icon: Inbox },
+  { title: "Testing", path: "/", icon: Calendar },
+  { title: "History", path: "/", icon: Search },
+  { title: "Analytics", path: "/", icon: Settings },
+  { title: "Leads", path: "/", icon: Settings },
+  { title: "Actions", path: "/", icon: Settings },
+  { title: "Add to website", path: "/", icon: Settings },
+  { title: "Account", path: "/", icon: Settings },
 ];
 
 export function AppSidebar() {
