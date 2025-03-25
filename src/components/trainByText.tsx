@@ -77,7 +77,7 @@ export default function TrainByText() {
               <Textarea
                 id="training-text"
                 placeholder="Enter text to train your chatbot..."
-                className="min-h-[200px] resize-none"
+                className="min-h-[200px] resize-none border-accent1"
                 value={trainingText}
                 onChange={(e) => setTrainingText(e.target.value)}
               />

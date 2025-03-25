@@ -146,14 +146,14 @@ export function FileInput({
   });
 
   return (
-    <div className="space-y-4 hover:bg-accent2">
+    <div className="space-y-4 ">
       <div
         {...getRootProps()}
         className={cn(
           "border-2 border-dashed rounded-xl p-8 transition-all",
           isDragActive
-            ? "border-primary bg-primary/5 scale-[0.98]"
-            : "border-muted-foreground/20 hover:border-primary/40 hover:bg-muted/50",
+            ? "border-accent1 bg-accent1 scale-[0.98]"
+            : "border-accent1 hover:bg-accent1 ",
           disabled && "opacity-50 cursor-not-allowed",
           className
         )}
@@ -163,15 +163,10 @@ export function FileInput({
           <div
             className={cn(
               "size-16 rounded-full flex items-center justify-center",
-              isDragActive ? "bg-primary/10" : "bg-muted"
+              isDragActive ? "" : "bg-muted"
             )}
           >
-            <Upload
-              className={cn(
-                "h-8 w-8",
-                isDragActive ? "text-primary" : "text-muted-foreground"
-              )}
-            />
+            <Upload className={cn("h-8 w-8", isDragActive ? "" : "")} />
           </div>
           <div className="space-y-1">
             <h3 className="text-lg font-medium">
@@ -200,7 +195,7 @@ export function FileInput({
       </div>
 
       {error && (
-        <div className="flex items-center gap-2 text-destructive text-sm bg-destructive/10 p-3 rounded-lg">
+        <div className="flex items-center gap-2 text-destructive text-sm text-text-red p-3 rounded-lg">
           <AlertCircle className="h-4 w-4 flex-shrink-0" />
           <span>{error}</span>
         </div>

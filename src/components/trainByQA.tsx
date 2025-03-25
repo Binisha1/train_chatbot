@@ -61,6 +61,7 @@ export default function TrainByQA() {
                   Question
                 </label>
                 <Input
+                  className="border-accent1"
                   id="question"
                   placeholder="Enter a question..."
                   value={question}
@@ -78,7 +79,7 @@ export default function TrainByQA() {
                 <Textarea
                   id="answer"
                   placeholder="Enter the answer..."
-                  className="min-h-[100px] resize-none"
+                  className="min-h-[100px] resize-none border-accent1"
                   value={answer}
                   onChange={(e) => setAnswer(e.target.value)}
                 />

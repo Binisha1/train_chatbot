@@ -67,7 +67,7 @@ export default function TrainByWebsite() {
                     setUrlInput(e.target.value);
                     if (error) setError(null);
                   }}
-                  className="h-10"
+                  className="h-10 border-accent1"
                 />
               </div>
               <Button
