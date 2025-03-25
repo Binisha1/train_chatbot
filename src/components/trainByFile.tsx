@@ -89,7 +89,7 @@ export function FileInput({
   maxSize = 10 * 1024 * 1024, // 10MB default
   className,
 }: FileInputProps) {
-  const { files, addFiles, removeFile } = useAppStore();
+  const { files, addFiles } = useAppStore();
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
