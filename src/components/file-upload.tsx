@@ -50,18 +50,22 @@ export default function FileUpload({ accept, onChange }: FileUploadProps) {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 ">
       <div className="flex items-center gap-2">
         <Button
           type="button"
           variant="outline"
           onClick={() => fileInputRef.current?.click()}
-          className="flex-1"
+          className="flex-1 border-accent1 focus:border-accent1"
         >
           <Upload className="mr-2 h-4 w-4" />
           Upload File
         </Button>
-        {fileName && (
+      </div>
+
+      {fileName && (
+        <p className="text-sm flex items-center">
+          {fileName}{" "}
           <Button
             type="button"
             variant="ghost"
@@ -70,18 +74,18 @@ export default function FileUpload({ accept, onChange }: FileUploadProps) {
           >
             <X className="h-4 w-4" />
           </Button>
-        )}
-      </div>
-
-      {fileName && <p className="text-sm text-muted-foreground">{fileName}</p>}
+        </p>
+      )}
 
       {preview && (
-        <div className="mt-2 relative w-16 h-16 rounded-md overflow-hidden border">
-          <img
-            src={preview || "/placeholder.svg"}
-            alt="Preview"
-            className="w-full h-full object-cover"
-          />
+        <div className="flex">
+          <div className="mt-2 relative w-16 h-16 rounded-md overflow-hidden border">
+            <img
+              src={preview || "/placeholder.svg"}
+              alt="Preview"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       )}
 

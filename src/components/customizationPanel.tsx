@@ -66,6 +66,7 @@ export default function CustomizationPanel() {
       <div className="space-y-2">
         <Label htmlFor="systemPrompt">System Prompt</Label>
         <Textarea
+          className="text-text-decoration"
           id="systemPrompt"
           value={config.systemPrompt}
           onChange={(e) => handleChange("systemPrompt", e.target.value)}
@@ -76,6 +77,7 @@ export default function CustomizationPanel() {
       <div className="space-y-2">
         <Label htmlFor="initialMessage">Initial Message</Label>
         <Textarea
+          className="text-text-decoration"
           id="initialMessage"
           value={config.initialMessage}
           onChange={(e) => handleChange("initialMessage", e.target.value)}
@@ -127,12 +129,12 @@ export default function CustomizationPanel() {
             type="color"
             value={config.themeColor}
             onChange={(e) => handleChange("themeColor", e.target.value)}
-            className="w-12 h-10 p-1"
+            className="w-12 h-10 p-1 border-none"
           />
           <Input
             value={config.themeColor}
             onChange={(e) => handleChange("themeColor", e.target.value)}
-            className="flex-1"
+            className="flex-1 border-accent1 focus:ring-accent1"
           />
         </div>
       </div>
@@ -147,14 +149,14 @@ export default function CustomizationPanel() {
             onChange={(e) =>
               handleChange("chatbotMessageColor", e.target.value)
             }
-            className="w-12 h-10 p-1"
+            className="w-12 h-10 p-1 border-none"
           />
           <Input
             value={config.chatbotMessageColor}
             onChange={(e) =>
               handleChange("chatbotMessageColor", e.target.value)
             }
-            className="flex-1"
+            className="flex-1 border-accent1 focus:ring-accent1"
           />
         </div>
       </div>
@@ -167,12 +169,12 @@ export default function CustomizationPanel() {
             type="color"
             value={config.userMessageColor}
             onChange={(e) => handleChange("userMessageColor", e.target.value)}
-            className="w-12 h-10 p-1"
+            className="w-12 h-10 p-1 border-none"
           />
           <Input
             value={config.userMessageColor}
             onChange={(e) => handleChange("userMessageColor", e.target.value)}
-            className="flex-1"
+            className="flex-1 border-accent1 focus:ring-accent1"
           />
         </div>
       </div>
